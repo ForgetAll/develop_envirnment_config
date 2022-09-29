@@ -1,0 +1,280 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+source ~/.zshrc_private
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="fwalch" # set by `omz`
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+lighthouse
+z
+colorize
+sudo
+cp
+extract
+web-search
+battery
+git
+git-extras
+git-flow
+github
+gitfast
+gitignore
+svn
+python
+ruby
+docker
+zsh-completions
+zsh-syntax-highlighting
+git-flow-completion
+macos
+kubectl
+rust
+zsh-autosuggestions
+ emoji vscode web-search
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source ~/.bash_profile
+alias git_proxy='git config --global http.proxy socks5://127.0.0.1:1086'
+alias git_proxys='git config --global https.proxy socks5://127.0.0.1:1086'
+alias git_unproxy='git config --global --unset https.proxy'
+alias git_unproxys='git config --global --unset https.proxy'
+export GOPROXY=https://goproxy.cn
+export GOPATH=~/go/
+export GOROOT=/usr/local/Cellar/go/1.18.4/libexec/
+export GO111MODULE=auto
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+#export FLUTTER_ROOT="~/flutter_sdk/bin"
+export FLUTTER_ROOT="~/flutter_sdk/flutter/bin"
+export PATH=$PATH:/$GOPATH/bin
+export PATH=$PATH:$HOME/Library/Python/3.8/bin
+#export PATH=$PATH:~/sdk/android/platform-tools
+ANDROID_SDK=~/AndroidSDK/platform-tools
+export PATH=$PATH:$ANDROID_SDK
+export PATH=$PATH:~/AndroidSDK/tools
+export PATH=$PATH:~/AndroidSDK/cmdline-tools
+export PATH=$PATH:~/AndroidSDK/ndk/21.4.7075529
+export PATH="$PATH:$FLUTTER_ROOT"
+alias testWhats='~/fork/whats/bin/whats.js'
+alias ctags="`brew --prefix`/bin/ctags"
+# alias java="`brew --prefix`/bin/java"
+# when write java and use java-complete2 needs python3 support
+# neovim does not have python3, should use normal vim to write
+alias v=av
+alias nv=av
+alias vim=av
+
+function av() {
+  #fortune -e tang300
+  #sleep 0.1
+#  nvim $1 $2 $3 $4 $5 $6 $7 $8 $9
+   /usr/local/bin/nvim $1 $2 $3 $4 $5 $6 $7 $8 $9
+#  if [ $# -eq 1 ]; then
+#    if [[ $1 == *.java ]]; then
+#      #/opt/homebrew/bin/vim $1
+#      nvim $1
+#    else
+#      nvim $1
+#    fi
+#  elif [ $# -eq 2 ]; then
+#    if [[ $1 == -* ]]; then
+#      if [[ $2 == *.java ]]; then
+#        #/opt/homebrew/bin/vim $1 $2
+#        nvim $1
+#      else
+#        nvim $1 $2
+#      fi
+#    else 
+#      echo 'param error: $1 $2'
+#      nvim --help
+#    fi
+#  elif [ $# -eq 0 ]; then
+#    nvim
+#  else
+#    echo 'too many params'
+#    nvim --help
+#  fi
+}
+
+export HISTSIZE=10000000
+export SAVEHIST=10000000
+
+# alias java=$JAVA_HOME/bin/java
+# alias javac=$JAVA_HOME/bin/javac
+
+export LANG=en_US.UTF-8
+export LC_CTYPE="zh_CN.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_PAPER="en_US.UTF-8"
+export LC_NAME="en_US.UTF-8"
+export LC_ADDRESS="en_US.UTF-8"
+export LC_TELEPHONE="en_US.UTF-8"
+export LC_MEASUREMENT="en_US.UTF-8"
+export LC_IDENTIFICATION="en_US.UTF-8"
+
+#eval $(thefuck --alias)
+#export THEFUCK_PRIORITY="git_hook_bypass=1100"
+source <(kubectl completion zsh)
+export PATH="/opt/homebrew/opt/mongodb-community@4.2/bin:$PATH"
+export MEMONGO_MONGOD_BIN=/opt/homebrew/opt/mongodb-community@4.2/bin/mongod
+alias chrome='open -a "Google Chrome"'
+alias typora='open -a "Typora"'
+
+function gs() {
+  git status
+}
+
+# 将命令行设置为 vi 模式（默认为 emacs）
+# set -o vi
+alias ovim="/opt/homebrew/bin/vim"
+
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# alias pod='arch -x86_64 pod'
+alias gmax='git describe --tags `git rev-list --tags --max-count=1`'
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+alias ft=fastlane
+
+export PATH="/usr/local/opt/mongodb-community@4.2/bin:$PATH"
+export MEMONGO_MONGOD_BIN=/usr/local/opt/mongodb-community@4.2/bin/mongod
+
+function changeKubeConfig() {
+  mv ~/.kube ~/.kube_pre1
+  mv ~/.kube_pre ~/.kube
+  mv ~/.kube_pre1 ~/.kube_pre
+}
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT="~/cocos/engine/cocos2d-x/tools/cocos2d-console/bin"
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_X_ROOT for cocos2d-x
+export COCOS_X_ROOT="~/cocos/engine"
+export PATH=$COCOS_X_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT="~/cocos/engine/cocos2d-x/templates"
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# Add environment variable ANDROID_SDK_ROOT for cocos2d-x
+export ANDROID_SDK_ROOT="~/AndroidSDK"
+export PATH=$ANDROID_SDK_ROOT:$PATH
+export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+
+# Add environment variable NDK_ROOT for cocos2d-x
+export NDK_ROOT="~/AndroidSDK/ndk/21.4.7075529"
+export PATH=$NDK_ROOT:$PATH
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=~/cocos/cocos2d-x-samples/libs/cocos2d-x/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=~/cocos/cocos2d-x-samples/libs/cocos2d-x/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=~/cocos/engine/cocos2d-x/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=~/cocos/engine/cocos2d-x/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+eval $(thefuck --alias)
